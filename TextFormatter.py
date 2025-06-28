@@ -6,7 +6,7 @@ class TextFormatter:
         text = re.sub(r"\n*\*?\*?(\d+)\. (.+?)\*?\*?", r"\n\n\1. \2", text)
         text = text.replace("**", "")
         text = re.sub(r"\n{3,}", "\n\n", text)
-        text = text.replace("Tip:", "💡 Tip:")
+        text = text.replace("Tip:", "Tip:")
         return text.strip()
 
     def format_data_list_pretty(data_list, data_type="general"):
