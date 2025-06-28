@@ -14,9 +14,9 @@ def run_console_chat():
     user_id = "user1"
 
     # start the chat
-    flow = ChatFlowManager(data=Sys_Data.Data,token=Constants.OrgTOKEN)
+    flow = ChatFlowManager(data=Sys_Data.Data,token=Constants.SeekerTOKEN)
     # TOKEN is the user id
-    flow.reset(Constants.OrgTOKEN)
+    flow.reset(Constants.SeekerTOKEN)
 
 
     print("Bot: Hello! Welcome to HireNy assistant.\n")

@@ -1,5 +1,6 @@
 import google.generativeai as genai
 import Sys_Data
+from TextFormatter import TextFormatter
 
 # import detect_intent
 
@@ -35,10 +36,21 @@ class GeminiChatbot:
             System task flows to guide behavior:
             {Sys_Data.task_flows}
         
-            Real-time system data (jobs, services, courses, user tech info):
-            {Sys_Data.Data}
+            Real-time system data (jobs, services, courses, user tech info) if he needs anything from the system hirney :
+             as jobs {TextFormatter.format_data_list_pretty(Sys_Data.Data["Jobs"], data_type="Jobs")}
+             as services {TextFormatter.format_data_list_pretty(Sys_Data.Data["Services"], data_type="Services")}
+            as courses {TextFormatter.format_data_list_pretty(Sys_Data.Data["Courses"], data_type="Courses")}
+            
+            User Technical Info:
+            {TextFormatter.format_tech_info(Sys_Data.Data.get("Tech_info", {}))}
+
+
             and user tech info incase he wants to know how to improve his skills or the needed courses to improve
             """
 
         response = self.chat.send_message(prompt)
+        # self.chat.history.append({"role": "user", "parts": [user_input]})
+        # self.chat.history.append({"role": "model", "parts": [response.text]})
+
         return response.text
+

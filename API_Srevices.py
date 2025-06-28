@@ -7,7 +7,7 @@ class BackendDataFetcher:
     def __init__(self):
         self.base_url = Constants.BASE_URL
         self.headers = {
-            "Authorization": f"Bearer {Constants.OrgTOKEN}",
+            "Authorization": f"Bearer {Constants.SeekerTOKEN}",
             "Content-Type": "application/json"
         }
 
